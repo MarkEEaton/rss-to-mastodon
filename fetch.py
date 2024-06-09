@@ -19,11 +19,11 @@ else:
         f2.write(current_post)
 
     mastodon = Mastodon(
-        access_token = settings.access_token
+        access_token = settings.access_token,
         api_base_url = settings.api_base_url
     )
 
-toot = "New post on the Library Technology at Kingsborough blog: " + current_post + "\n\n" + link
+    toot = f"New post on the Library Technology at Kingsborough blog: {current_post}\n\n{link}"
     print(toot)
     mastodon.toot(toot)
 
