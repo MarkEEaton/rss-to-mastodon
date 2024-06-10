@@ -23,7 +23,7 @@ else:
         api_base_url = settings.api_base_url
     )
 
-    toot = f"New post on the Library Technology at Kingsborough blog: {current_post}\n\n{link}"
+    toot = f"New post on the Library Technology at Kingsborough blog:\n\n{current_post}\n{link}"
     print(toot)
     mastodon.toot(toot)
 
