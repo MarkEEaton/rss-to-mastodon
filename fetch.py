@@ -1,7 +1,6 @@
 import argparse
 import feedparser
 import os
-import settings
 from mastodon import Mastodon
 
 url = os.environ["KINGS_URL"]
