@@ -22,6 +22,7 @@ jobs:
       env:
         KINGS_EMAIL: ${{ secrets.KINGS_EMAIL }}
         KINGS_PWD: ${{ secrets.KINGS_PWD }}
+        KINGS_URL: ${{ secrets.KINGS_URL }}
     - name: 'configure git'
       run: |
         git config user.name "GitHub Actions Bot"
