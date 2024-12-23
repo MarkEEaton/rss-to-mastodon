@@ -1,0 +1,36 @@
+on: workflow_dispatch
+# on:
+#   schedule:
+#   - cron: '4 16 * * *'
+
+jobs:
+  deploy:
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    environment: defaultenv
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
+        cache: 'pip' # caching pip dependencies
+    - name: 'run the python script'
+      run: |
+        pip install -r requirements.txt
+        python toot.py ($cat last_post.txt)
+      env:
+        KINGS_EMAIL: ${{ secrets.KINGS_EMAIL }}
+        KINGS_PWD: ${{ secrets.KINGS_PWD }}
+    - name: 'configure git'
+      run: |
+        git config user.name "GitHub Actions Bot"
+        git config user.email "actions@github.com"
+    - name: 'commit if changed'
+      run: |
+        git add last_post.txt
+        if [[ $(git diff --staged --name-only) ]]; then
+          git commit -m "Saved new post"
+        else
+          echo "No changes detected"
+        fi
