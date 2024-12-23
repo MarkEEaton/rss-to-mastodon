@@ -18,7 +18,7 @@ jobs:
     - name: 'run the python script'
       run: |
         pip install -r requirements.txt
-        python fetch.py ($cat last_post.txt)
+        python fetch.py "$(< last_post.txt)"
       env:
         KINGS_EMAIL: ${{ secrets.KINGS_EMAIL }}
         KINGS_PWD: ${{ secrets.KINGS_PWD }}
