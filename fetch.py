@@ -21,27 +21,25 @@ else:
     with open("current_title", "w") as f2:
         f2.write(current_post)
 
-    base_url = 'https://mastodon.ocert.at'
+    base_url = "https://mastodon.ocert.at"
 
     app = Mastodon.create_app(
-        'pytooterapp',
-        api_base_url = base_url,
+        "pytooterapp",
+        api_base_url=base_url,
     )
 
-    mastodon = Mastodon(client_id = app[0], client_secret = app[1], api_base_url =
-                        base_url)
+    mastodon = Mastodon(client_id=app[0], client_secret=app[1], api_base_url=base_url)
     token = mastodon.log_in(
-        os.environ['KINGS_EMAIL'],
-        os.environ['KINGS_PWD'],
+        os.environ["KINGS_EMAIL"],
+        os.environ["KINGS_PWD"],
     )
 
-    mastodon = Mastodon(access_token = token, api_base_url = base_url)
+    mastodon = Mastodon(access_token=token, api_base_url=base_url)
 
     # Save updated history
-    with open('last_post.txt, 'w') as f:
+    with open("last_post.txt", "w") as f:
         f.write(current_post)
 
     toot = f"New post on the Library Technology at Kingsborough blog:\n\n{current_post}\n{link}"
     print(toot)
     mastodon.toot(toot)
-
