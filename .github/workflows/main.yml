@@ -31,7 +31,8 @@ jobs:
       run: |
         git add last_post.txt
         if [[ $(git diff --staged --name-only) ]]; then
-          git commit -m "Saved new post"
+          git commit -m "Saved new post [skip actions]"
+          git push origin main
         else
           echo "No changes detected"
         fi
