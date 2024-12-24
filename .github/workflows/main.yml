@@ -19,6 +19,7 @@ jobs:
       run: |
         pip install -r requirements.txt
         python fetch.py "$(< last_post.txt)"
+        echo "$(< last_post.txt)"
       env:
         KINGS_EMAIL: ${{ secrets.KINGS_EMAIL }}
         KINGS_PWD: ${{ secrets.KINGS_PWD }}
