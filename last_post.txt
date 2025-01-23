@@ -1,1 +1,1 @@
-Log
+Obligatory static site generator post
