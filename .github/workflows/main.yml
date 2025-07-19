@@ -21,9 +21,7 @@ jobs:
         python fetch.py "$(< last_post.txt)"
         echo "$(< last_post.txt)"
       env:
-        KINGS_EMAIL: ${{ secrets.KINGS_EMAIL }}
-        KINGS_PWD: ${{ secrets.KINGS_PWD }}
-        KINGS_URL: ${{ secrets.KINGS_URL }}
+        KINGSBOTSECRET: ${{ secrets.KINGSBOTSECRET }}
     - name: 'configure git'
       run: |
         git config user.name "GitHub Actions Bot"
