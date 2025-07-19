@@ -3,7 +3,7 @@ import feedparser
 import os
 from mastodon import Mastodon
 
-url = os.environ["KINGS_URL"]
+url = os.environ["KINGSURL"]
 feed = feedparser.parse(url)
 most_recent = feed.entries[0]
 current_post = most_recent["title"]
@@ -21,19 +21,7 @@ else:
         f2.write(current_post)
 
     base_url = "https://mastodon.ocert.at"
-
-    app = Mastodon.create_app(
-        "pytooterapp",
-        api_base_url=base_url,
-    )
-
-    mastodon = Mastodon(client_id=app[0], client_secret=app[1], api_base_url=base_url)
-    token = mastodon.log_in(
-        os.environ["KINGS_EMAIL"],
-        os.environ["KINGS_PWD"],
-    )
-
-    mastodon = Mastodon(access_token=token, api_base_url=base_url)
+    mastodon = Mastodon(access_token=os.environ([KINGSBOTSECRET]), api_base_url=base_url)
 
     # Save updated history
     with open("last_post.txt", "w") as f:
