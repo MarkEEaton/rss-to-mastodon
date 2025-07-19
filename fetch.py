@@ -21,7 +21,7 @@ else:
         f2.write(current_post)
 
     base_url = "https://mastodon.ocert.at"
-    mastodon = Mastodon(access_token=os.environ(['KINGSBOTSECRET']), api_base_url=base_url)
+    mastodon = Mastodon(access_token=os.environ['KINGSBOTSECRET'], api_base_url=base_url)
 
     # Save updated history
     with open("last_post.txt", "w") as f:
