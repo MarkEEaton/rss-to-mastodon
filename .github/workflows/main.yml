@@ -22,6 +22,7 @@ jobs:
         echo "$(< last_post.txt)"
       env:
         KINGSBOTSECRET: ${{ secrets.KINGSBOTSECRET }}
+        KINGSURL: ${{ secrets.KINGSURL }}
     - name: 'configure git'
       run: |
         git config user.name "GitHub Actions Bot"
