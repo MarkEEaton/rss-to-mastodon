@@ -23,10 +23,22 @@ else:
     base_url = "https://mastodon.ocert.at"
     mastodon = Mastodon(access_token=os.environ['KINGSBOTSECRET'], api_base_url=base_url)
 
-    # Save updated history
+    # Gather every new entry until we reach the one already posted
+    new_entries = []
+    for entry in feed.entries:        # entries are newest-first
+        if entry["title"] == last_post:
+            break
+        new_entries.append(entry)
+
+    # Post oldest → newest so the timeline looks natural
+    for entry in reversed(new_entries):
+        toot = (
+            "New post on the Library Technology at Kingsborough blog:\n\n"
+            f"{entry['title']}\n{entry['link']}"
+        )
+        print(toot)
+        mastodon.toot(toot)
+
+    # Save updated history (the newest item we just processed)
     with open("last_post.txt", "w") as f:
         f.write(current_post)
-
-    toot = f"New post on the Library Technology at Kingsborough blog:\n\n{current_post}\n{link}"
-    print(toot)
-    mastodon.toot(toot)
