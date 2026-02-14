@@ -2,6 +2,7 @@ import argparse
 import feedparser
 import os
 from mastodon import Mastodon
+from pprint import pprint
 
 url = os.environ["KINGSURL"]
 feed = feedparser.parse(url)
@@ -29,6 +30,8 @@ else:
         if entry["title"] == last_post:
             break
         new_entries.append(entry)
+
+    pprint(new_entries)
 
     # Post oldest → newest so the timeline looks natural
     for entry in reversed(new_entries):
