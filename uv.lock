@@ -40,14 +40,14 @@ wheels = [
 
 [[package]]
 name = "feedparser"
-version = "6.0.10"
+version = "6.0.11"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "sgmllib3k" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/63/9a/824e3c036dec4f0adb4e7c36dcf4cbffc9ee317a4985218cb1663c7ab4ad/feedparser-6.0.10.tar.gz", hash = "sha256:27da485f4637ce7163cdeab13a80312b93b7d0c1b775bef4a47629a3110bca51", size = 286395, upload-time = "2022-05-21T13:54:12.625Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/ff/aa/7af346ebeb42a76bf108027fe7f3328bb4e57a3a96e53e21fd9ef9dd6dd0/feedparser-6.0.11.tar.gz", hash = "sha256:c9d0407b64c6f2a065d0ebb292c2b35c01050cc0dc33757461aaabdc4c4184d5", size = 286197, upload-time = "2023-12-10T16:03:20.854Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/92/1e/741fd94cf2855d251712868f2183cb6485a28daaa3947e1a7046dc036aca/feedparser-6.0.10-py3-none-any.whl", hash = "sha256:79c257d526d13b944e965f6095700587f27388e50ea16fd245babe4dfae7024f", size = 81103, upload-time = "2022-05-21T13:54:10.647Z" },
+    { url = "https://files.pythonhosted.org/packages/7c/d4/8c31aad9cc18f451c49f7f9cfb5799dadffc88177f7917bc90a66459b1d7/feedparser-6.0.11-py3-none-any.whl", hash = "sha256:0be7ee7b395572b19ebeb1d6aafb0028dee11169f1c934e0ed67d54992f4ad45", size = 81343, upload-time = "2023-12-10T16:03:19.484Z" },
 ]
 
 [[package]]
@@ -158,7 +158,7 @@ requires-dist = [
     { name = "certifi", specifier = "==2024.7.4" },
     { name = "charset-normalizer", specifier = "==2.1.0" },
     { name = "decorator", specifier = "==5.1.1" },
-    { name = "feedparser", specifier = "==6.0.10" },
+    { name = "feedparser", specifier = "==6.0.11" },
     { name = "idna", specifier = "==3.7" },
     { name = "mastodon-py", specifier = "==1.8.1" },
     { name = "python-dateutil", specifier = "==2.8.2" },
