@@ -1,1 +1,1 @@
-GhostBSD
+Fish shell
